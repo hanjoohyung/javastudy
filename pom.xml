@@ -26,5 +26,6 @@
   </build>
   <modules>
   	<module>practice01</module>
+  	<module>practice02</module>
   </modules>
 </project>
