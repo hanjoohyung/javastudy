@@ -12,7 +12,7 @@ public class Prob3 {
 		i = scanner.nextInt();
 		
 		if(i%2==0) {
-			System.out.println("결과 값 f: " +i);
+			System.out.println("결과 값 : " +i);
 		}
 		
 		scanner.close();
