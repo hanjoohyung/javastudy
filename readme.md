@@ -3,83 +3,51 @@
 ### chapter01 - practice01
 1. 자바 기본 프로그래밍 연습 
 
-①번 문제
-
-```
-package prob1;
-
-import java.util.Scanner;
-
-public class Prob1 {
-	public static void main(String[] args) {
-		int i;
-		Scanner scanner = new Scanner( System.in );
-		System.out.println("수를 입력하십시오 : ");
-		i = scanner.nextInt();
-		
-		if(i%3==0) {
-			System.out.println("3의 배수입니다.");
-		}
-		else
-		scanner.close();
-	}
-}
-```
-
-②번 문제
-
-```
-package prob2;
-
-public class Prob2 {
-	public static void main(String[] args) {
-		int i;
-		int j;
-		for(j=1;j<11;j++) {
-		for(i=j;i<j+10;i++) {
-			System.out.print(" "+ i);
-		}
-		System.out.println("");
-		}
-	}
-}
-```
-
-③번 문제
-
-```
-```
-
-④번 문제
-
-```
-```
-
-⑤번 문제
-
-```
-```
-
 ### practice02
 1. 자바 기본 프로그래밍 연습2
 
 ### chapter02
 1. 객체지향 프로그래밍 수업 정리
 
-UML(Unified Modeling Language) - 설계자와 설계도를 보며 구현하는 사람이 알아야 한다.
+ UML(Unified Modeling Language) - 설계자와 설계도를 보며 구현하는 사람이 알아야 한다.
 
-has a 관계 - 가지는(포함하는) 관계
+ has a 관계 - 가지는(포함하는) 관계
 
- 공통적인 것을 모아놓거나, 중요한 것은 남기고, 불필요한 것을 없애는 것을 객체 지향에서는 "추상화"라고 한다.
+ 중요한 것은 남기고, 불필요한 것을 없애는 것을 객체 지향에서는 "추상화"라고 한다.
 
- 객체들이 가지고 있는 속성들과 기능들 중 공통적인 것이나, 중요한 것들만 남기고 불필요한 것을 없애게 되는 과정을
+ 객체들이 가지고 있는 속성들과 기능들 중 중요한 것들만 남기고 불필요한 것을 없애게 되는 과정을
  '추성화 한다'라고 한다.
+ 
+ 상속된 부모클래스의 추상을 자식클래스에서는 구체적으로 구현을 해야한다.
+ 
+ 공통적인 여러것들을 하나의 이름으로 부트는 것을 "일반화"라고 한다.
+ 
+ 인스턴스 - 데이터가 들어있는 메모리 덩어리
+ 
+ 상속은 확장때문에 하는 것이다.
+ 
+ 객체는 new로만 생성이 가능하다. new가 붙는 것들은 객체이다. (배열, 인스턴스)
+ 
+ 오버라이딩(확장성)은 객체지향의 꽃이다.
  
  객체의 데이터는 메소드를 통해 접근이 가능하다.
  
  배열에서 데이터 삽입은 pop을 사용한다. 
  
- stack - FILO(123입력, 321출력), queue - FIFO(123입력, 123출력)
+ stack - FILO, queue - FIFO
+ 
+ 다형성 = 객체를 다양한 형태로 효율적으로 사용 할 수 있게 해주는 성질
+ 
+ 오버로드 - 같은 클래스에서 나타남
+ 오버라이드 - 상속을 통해서 나타남 [확장 = 상속 + 오버라이딩 + (부모 레퍼런스)]
+ OCP - 
+ 
+ 인터페이스 - 메소드들을 모아놓은 것, 레퍼런스도 가능하다.
+ 
+ 클래스 구성 - 변수, 생성자, 메소드
+ 객제지향 특징 - 캡슐화(정보 은닉), 상속, 다형성 - 오버라이딩 , 추상클래스, 인터페이스
+ 									 - 오버로딩
+ 자바 API Lang, Network,
 
 
 
