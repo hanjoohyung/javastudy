@@ -7,7 +7,7 @@ public class WatchTV {
 		         
 		         tv.status();	
 		         
-		        // tv.power( true );
+		         tv.power( true );
 		         tv.volume( 120 );
 		         tv.status();		          
 		         
@@ -22,7 +22,7 @@ public class WatchTV {
 		         tv.channel( true );
 		         tv.status();
 
-		        // tv.power( false );
+		         tv.power( false );
 		         tv.status();      		          
 		   
 		
