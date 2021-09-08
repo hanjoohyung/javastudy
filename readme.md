@@ -47,10 +47,11 @@
  Block Scope(local variable) 지역변수
  
  src(디렉토리) - chapter02(패키지) - Goods.java,GoodsApp.java(소스)
- 
  bin(디렉토리) - chapter02(패키지) - Goods.class,GoodsApp.class(실행)
  
- classpath
+ void가 아닌 반환 타입이 있으면 return절이 꼭 들어가야 한다.
+ 
+ 
 
 
 
