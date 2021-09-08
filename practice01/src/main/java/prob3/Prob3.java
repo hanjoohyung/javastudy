@@ -10,17 +10,17 @@ public class Prob3 {
 		
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("숫자를 입력하세요 :");
-		i = scanner.nextInt();
-		sum = i;
+		int a = scanner.nextInt();
+		sum = a;
 		
-		
-		if(i%2==0) {			
-				sum = sum + i-2;				
+		for() {
+		if(a%2==0) {		
+				sum = sum + a;
 		}
 		else {		
-				sum = sum + i-2;			
+				sum = sum + a;			
 		}
-		
+	}
 		System.out.println("결과 값 :"+sum);
 		scanner.close();
 	}

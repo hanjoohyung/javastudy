@@ -1,7 +1,6 @@
 package chapter03;
 
 public class Goods {
-	private static int totalCount = 0;
 	private String name;
 	private int price;
 	private int countStock;
@@ -30,6 +29,10 @@ public class Goods {
 	}
 	public void setCountSold(int countSold) {
 		this.countSold = countSold;
+	}
+	public void showInfo() {
+		System.out.println("name:" + name + ", price:"+ price +
+				", countStock:"+ countStock +", countSold:"+countSold);	
 	}
 }
 	

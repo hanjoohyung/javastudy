@@ -8,8 +8,7 @@ public class GoodsApp {
 		goods.setPrice(2000);
 		goods.setCountStock(10);
 		goods.setCountSold(20);
-		
-		System.out.println(goods.toString());
+		goods.showInfo();
 	}
 
 }

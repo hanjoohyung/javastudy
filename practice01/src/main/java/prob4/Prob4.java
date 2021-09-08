@@ -12,7 +12,7 @@ public class Prob4 {
 		
 		
 		for(int i=0;i<text.length();i++) {
-			String ans = text.substring(0,i+1);
+			String ans = text.substring(0,i+1); // 0~i+1까지에 해당되는 문자열을 잘라내어 추출
 		System.out.println(ans);
 		}
 		scanner.close();
