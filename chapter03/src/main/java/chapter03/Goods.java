@@ -1,11 +1,15 @@
 package chapter03;
 
 public class Goods {
+	public static int countOfGoods = 0;
 	private String name;
 	private int price;
 	private int countStock;
 	private int countSold;
 	
+	public Goods() {
+		countOfGoods = Goods.countOfGoods+1;
+	}
 	public String getName() {
 		return name;
 	}
@@ -33,6 +37,9 @@ public class Goods {
 	public void showInfo() {
 		System.out.println("name:" + name + ", price:"+ price +
 				", countStock:"+ countStock +", countSold:"+countSold);	
+	}
+	public int calcDiscountPrice(int percentage) {
+		return price * percentage/100;
 	}
 }
 	
