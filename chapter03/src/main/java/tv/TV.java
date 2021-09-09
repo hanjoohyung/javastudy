@@ -16,6 +16,12 @@ public class TV {
 	}
 	public void volume(boolean up) {
 		//volume(volume + (up ? 1 : -1));
+		if(up) {
+			volume = volume +1;
+		}
+		else {
+			volume = volume -1;
+		}
 	}
 	public void volume(int volume) {
 		if(!power) {
@@ -42,7 +48,12 @@ public class TV {
 		//this.channel = channel;
 	}
 	public void channel(boolean up) {	
-		//channel(channel + (up ? 1 : -1));
+		if(up) {
+			channel = channel +1;
+		}
+		else {
+			channel = channel -1;
+		}
 	}
 	public void status() {
 		System.out.println( "TV [channel=" + channel + ", volume=" + volume + ", power=" + power + "]");
