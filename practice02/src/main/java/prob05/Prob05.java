@@ -20,7 +20,7 @@ public class Prob05 {
 			Random random = new Random();
 			int correctNumber = random.nextInt( 100 ) + 1;
 			System.out.println(correctNumber);
-			for(int j=1;j<101;) {
+			for(int j=1;j<101;j++) {
 				System.out.print(j+">>");
 				int i = scanner.nextInt();
 				if(i==correctNumber) {
