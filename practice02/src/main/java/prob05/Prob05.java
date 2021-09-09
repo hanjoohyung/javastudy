@@ -6,8 +6,7 @@ import java.util.Scanner;
 public class Prob05 {
 
 	public static void main(String[] args) {
-		int a=1;
-		int b=100;
+	
 	
 		Scanner scanner = new Scanner( System.in );
 		System.out.println("수를 결정하였습니다. 맞추어 보세요");
@@ -22,9 +21,8 @@ public class Prob05 {
 			int correctNumber = random.nextInt( 100 ) + 1;
 			System.out.println(correctNumber);
 			for(int j=1;j<101;) {
+				System.out.print(j+">>");
 				int i = scanner.nextInt();
-				int w = 1;
-				int e = 100;
 				if(i==correctNumber) {
 					System.out.println("맞췄습니다.");	
 					break;
@@ -32,16 +30,13 @@ public class Prob05 {
 				else {
 					if(i>correctNumber) {
 						System.out.println("더 낮게");
-						System.out.println(w+"-"+i);							
+						System.out.println();							
 					}
-					else if(i<correctNumber ){
+					else if(i<correctNumber){
 						System.out.println("더 높게");
-						System.out.println(w+"-"+e);	
+						System.out.println();	
 					}
-				
-				}
-				 w = a+j;
-				 e = b-j;
+				}				
 			}
 			//새 게임 여부 확인하기
 			System.out.print( "다시 하겠습니까(y/n)>>" );
