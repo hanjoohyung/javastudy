@@ -24,7 +24,6 @@ public class Goods {
 			return;
 		}
 		this.price = price;
-		
 	}
 	public int getCountStock() {
 		return countStock;
