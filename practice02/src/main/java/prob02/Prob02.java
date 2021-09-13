@@ -18,7 +18,7 @@ public class Prob02 {
 		for(int i=0;i<5;i++) { //배열의 칸마다 저장되어 있는 수를 더하기
 			sum = sum + intArray[i];
 		}
-		double avg = sum/j; //결과값이 30.0이 나와야하기때문에 실수형 double작성
+		double avg = sum/j; //결과값이 XXX.0이 나와야하기때문에 실수형 double작성
 	
 		System.out.println("평균은 "+avg+"입니다.");
 		scanner.close();
