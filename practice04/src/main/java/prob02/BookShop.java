@@ -19,7 +19,6 @@ public class BookShop {
 		books[7] = new Book( 8,"귀천","천상병");
 		books[8] = new Book( 9,"태백산맥","조정래");
 		books[9] = new Book( 10,"풀하우스","원수연");
-		System.out.println(books[0].stateCode);
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("대여 하고 싶은 책의 번호를 입력하세요:");
 		int num = scanner.nextInt();
