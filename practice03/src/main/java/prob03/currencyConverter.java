@@ -7,7 +7,6 @@ public class currencyConverter {
 	public double getRate() {
 		return Rate;
 	}
-
 	public void setRate(double rate) {
 		Rate = rate;
 	}

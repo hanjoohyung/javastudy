@@ -1,7 +1,7 @@
 package prob01;
 
 public class Printer {
-
+	// 각 타입에 맞게 저장된 값을 그대로 출력
 	public void println(boolean b) {
 		System.out.println(b);
 	}

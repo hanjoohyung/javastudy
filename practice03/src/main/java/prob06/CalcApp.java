@@ -12,22 +12,22 @@ public class CalcApp {
 			System.out.print( ">> " );
 			String expression = scanner.nextLine();
 			
-			if( "quit".equals( expression ) ) {
+			if( "quit".equals( expression ) ) { // quit를 입력하면 while문 밖으로 나감
 				break;
 			}
 			
 			String[] tokens = expression.split( " " );
 			
-			if( tokens.length != 3 ) {
+			if( tokens.length != 3 ) { // 입력을 세개 이상 하지 않으면
 				System.out.println( ">> 알 수 없는 식입니다.");
 				continue;
 			}
 			
-			int lValue = Integer.parseInt( tokens[ 0 ] );
-			int rValue = Integer.parseInt( tokens[ 2 ] );
+			int lValue = Integer.parseInt( tokens[ 0 ] ); // 첫 번째로 입력한 숫자를 int타입으로 변환 
+			int rValue = Integer.parseInt( tokens[ 2 ] ); // 세 번째로 입력한 숫자를 int타입으로 변환 
 			
 			switch( tokens[ 1 ] ) {
-				case "+" : {
+				case "+" : { // 두 번째로 입력한 사칙연산 기호에 맞게 계산
 					Add add = new Add();
 					add.setValue( lValue, rValue );
 					int result = add.calculate();

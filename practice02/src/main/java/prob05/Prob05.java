@@ -8,13 +8,13 @@ public class Prob05 {
 	
 		Scanner scanner = new Scanner( System.in );
 
-		while( true ) {
+		while( true ) { // 정답을 맞출때까지 실행
 			
 			/* 게임 작성 */
-			int min = 1;
-			int max = 100;
+			int min = 1;  // 최소값
+			int max = 100;// 최대값
 			// 정답 램덤하게 만들기
-			Random random = new Random();
+			Random random = new Random(); 
 			System.out.println("수를 결정하였습니다. 맞추어 보세요");
 			int correctNumber = random.nextInt( 100 ) + 1; // Random class로 1-100까지의 임의의 정수를 랜덤으로 생성
 			System.out.println(correctNumber);
@@ -22,18 +22,18 @@ public class Prob05 {
 				System.out.println(min + "-"+ max);
 				System.out.print(j+">>");
 				int i = scanner.nextInt();
-				if(i==correctNumber) {
+				if(i==correctNumber) { // 정답을 맞췄을 때
 					System.out.println("맞췄습니다.");	
 					break;
 				}
-				else {
+				else { // 정답에 가깝게 범위 축소
 					if(i>correctNumber) { // 입력값이 정답보다 크다면
 						System.out.println("더 낮게");
-						max = i;  // 범위 최대 값을 i로 지정
+						max = i;  // 범위 최대 값을 이전 최대값에서 i로 지정
 					}
 					else if(i<correctNumber){ // 입력값이 정답보다 작다면
 						System.out.println("더 높게");
-						min = i;  //  범위 최소 값을 i로 지정
+						min = i;  //  범위 최소 값을 이전 최소값에서 i로 지정
 					}
 				}				
 			}

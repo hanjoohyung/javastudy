@@ -7,7 +7,7 @@ public class Prob1 {
 		int i;
 		Scanner scanner = new Scanner( System.in );
 		System.out.println("수를 입력하십시오 : ");
-		i = scanner.nextInt();
+		i = scanner.nextInt(); // scanner를 통해 nextInt 정수형을 입력받는 함수
 		
 		if(i%3==0) {
 			System.out.println("3의 배수입니다.");

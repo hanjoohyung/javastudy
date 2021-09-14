@@ -24,7 +24,7 @@ public class BookShop {
 		scanner.close();
 		// (1) 입력된 번호에 맞는 책을 찾아 대여 되었음(상태코드=0)을 체크 합니다.
 		for(Book book : books) {
-			if (num == book.getBookNo()) {
+			if (num == book.getBookNo()) { // 입력한 번호와 책 번호가 동일하면 책을 대여했다고 보고 stateCode를 0으로 변환
 				book.rent();
 				break;
 			}

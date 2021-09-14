@@ -10,13 +10,13 @@ public class Prob04 {
 		printCharArray( c2 );
 	}
 	public static char[] reverse(String str) {
-		char[] data=new char[str.length()]; //문자열을 담을 배열
-		for(int i =str.length()-1;i>=0;i--) { // 문자열을 한글자씩 끊어 배열에 저장
-			data[str.length()-1-i]=str.charAt(i);
+		char[] data = new char[str.length()]; // 문자열을 담을 배열 ***********
+		for(int i =str.length()-1;i>=0;i--) { 
+			data[str.length()-1-i]=str.charAt(i); // 문자열 거꾸로 새로운 배열에 저장
 		}
 		return data;
 	}
 	public static void printCharArray(char[] array){	
-		System.out.println( array );
+		System.out.println(array);
 	}
 }

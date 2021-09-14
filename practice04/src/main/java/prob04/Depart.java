@@ -4,8 +4,8 @@ public class Depart extends Employee {
 	private String department;
 	
 	public Depart(String name, int salary, String department) {
-		super(name,salary); // 부모클래스의 값을 불러오는 함수
-		this.department = department; // 먼저 입력된 값을 불러 온다.
+		super(name,salary); // 부모클래스인 Employee에서 먼저 설정 완료. 설정된 값을 불러오는 함수
+		this.department = department; // Prob4의 값을 불러 온다.
 	}
 
 	public String getDepartment() {
@@ -16,7 +16,7 @@ public class Depart extends Employee {
 		this.department = department;
 	}
 	@Override
-	public void getInformation() { // getInformation을 오버라이드 해주어서 출력되게 해줌
+	public void getInformation() { // 부모클래스인 Employee에 먼저 설정된 getInformation을 오버라이드 하여 덮어씌워 출력
 		System.out.println("이름 : "+ getName() + " 연봉 : "+ getSalary() + " 부서 : " + department);
 	}
 
