@@ -15,6 +15,7 @@ public class NSLookup {
 			for(;;) {
 				System.out.print(">>");
 				String str = scanner.nextLine();
+				System.out.println("0");
 				
 				if(str.equals("quit")) {
 					break;
