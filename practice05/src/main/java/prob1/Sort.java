@@ -22,12 +22,9 @@ public class Sort {
 					array[i] = array[i+1];
 					array[i+1] = p;	
 				}
-					for(int j = 0;j<count;j++) { 
-						
-				}
-					
-			}
-		
+					for(int j = 0;j<count;j++) { 			
+				}				
+			}		
 		}			
 		// 결과 출력
 		System.out.println( "\nAfter Sort." );	
