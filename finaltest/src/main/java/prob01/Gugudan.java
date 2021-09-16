@@ -18,10 +18,10 @@ public class Gugudan {
 		int[] noanswerNumbers = randomizeAnswers();
 		int loc = randomize(0, 8);
 		answerNumbers[loc] = resultNumber;
-		int ioc = randomize(0, 8); // loc값이 아닌 모든 값
+		int ioc = randomize(0, 8);
 		noanswerNumbers[ioc]=notresultNumber;
 		System.out.println(l + " x " + r + " = ?");		
-		int length = answerNumbers.length; // 9
+		int length = answerNumbers.length; 
 		for (int i = 0; i < length;i++) {
 			int a = randomize(1, 9);
 			int b = randomize(1, 9);
