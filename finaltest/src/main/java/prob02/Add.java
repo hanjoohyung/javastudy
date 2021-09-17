@@ -1,19 +1,15 @@
 package prob02;
 
-public class Add{
+public class Add implements Arithmetic{
 
-	private int lValue;
-	private int rValue;
-	
-	public void setValue(int lValue, int rValue) {
-		this.lValue = lValue;
-		this.rValue = rValue;
-	}
-	
-	public int calculate() {
-		int add = lValue + rValue;
-		return add;
-	}
+	@Override
+	public int calculate(int lValue, int rValue) {
+		return lValue+rValue;
 
-	
+	}
 }
+	
+
+
+	
+

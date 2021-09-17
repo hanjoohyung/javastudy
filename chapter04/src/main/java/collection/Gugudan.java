@@ -25,8 +25,9 @@ public class Gugudan {
 		Gugudan other = (Gugudan) obj;
 		return left * right == other.left * other.right;
 	}
+	
 	@Override
 	public String toString() {
-		return "Gugudan [left=" + left + ", right=" + right + "]";
+		return new Integer(left*right).toString();
 	}	
 }

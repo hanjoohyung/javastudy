@@ -1,19 +1,9 @@
 package prob02;
 
-public class Div{
+public class Div implements Arithmetic {
 
-	private int lValue;
-	private int rValue;
-
-	public void setValue(int lValue, int rValue) {
-		this.lValue = lValue;
-		this.rValue = rValue;
-		
+	@Override
+	public int calculate(int lValue, int rValue) {
+		return lValue/rValue;
 	}
-
-	public int calculate() {
-		int div = lValue / rValue;
-		return div;
-	}
-
 }

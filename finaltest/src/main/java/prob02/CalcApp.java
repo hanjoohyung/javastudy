@@ -20,7 +20,7 @@ public class CalcApp {
 				break;
 			}
 			
-			String[] tokens = expression.split( " " );
+			String[] tokens = expression.split(" ");
 			
 			if( tokens.length != 3 ) {
 				System.out.println( ">> 알 수 없는 식입니다.");
@@ -32,37 +32,22 @@ public class CalcApp {
 			
 			Arithmetic arithmetic = null;
 			
-			switch( tokens[ 1 ] ) {
+			switch( tokens[ 2 ] ) {
 			case "+" : { // 두 번째로 입력한 사칙연산 기호에 맞게 계산
 				Add add = new Add();
-				add.setValue( lValue, rValue );
-				int result = add.calculate();
-				System.out.println( ">> " + result );
-				
 				break;
 			}
 			case "-" : {
 				Sub sub = new Sub();
-				sub.setValue( lValue, rValue );
-				int result = sub.calculate();
-				System.out.println( ">> " + result );
-				
 				break;
 			}
 			case "*" : {
 				Mul mul = new Mul();
-				mul.setValue( lValue, rValue );
-				int result = mul.calculate();
-				System.out.println( ">> " + result );
-				
+
 				break;					
 			}
 			case "/" : {
 				Div div = new Div();
-				div.setValue( lValue, rValue );
-				int result = div.calculate();
-				System.out.println( ">> " + result );
-				
 				break;
 			}
 			default :  {
@@ -70,7 +55,6 @@ public class CalcApp {
 			}
 		
 			}
-			
 			int result = arithmetic.calculate(lValue, rValue);
 			System.out.println( ">> " + result );
 		}
