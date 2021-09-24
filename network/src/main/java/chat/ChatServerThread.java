@@ -6,132 +6,113 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.io.Writer;
-import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class ChatServerThread extends Thread{
-	private static final int PORT = 9999;
-	private static final String IP = "127.0.0.1";
-	List<Writer> listWriters = new ArrayList<Writer>();
 	private String nickname;
 	private Socket socket;
+	private List<Writer> listWriters = new ArrayList<Writer>();
+	private Scanner scanner = null;
+	private BufferedReader br = null;
+	private PrintWriter pw = null;
 	
-	@Override
-	public void run() {
-		ServerSocket serverSocket = null;
-		Socket socket = null;
-		List<Writer> listWriters;
-	try {
-		
-		serverSocket = new ServerSocket();
-		
-		while(true) {
-		socket = serverSocket.accept();
-		new ChatServerThread(socket).start();
-		}
-		
-		new ChatServerThread(socket, listWriters).start();
-		try {
-			BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream(), "UTF-8"));
-			PrintWriter pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), "UTF-8"), true);
-			
-			System.out.print("닉네임을 정해주세요 >>");
-			Scanner scanner = new Scanner(System.in);
-			nickname = scanner.nextLine();
-			printWriter.println(nickname + "님이 참여하셨습니다.");
-			printWriter.flush();
-			
-			new ChatServerThread(socket, listWriters).start();
-			
-			while(true) {
-				System.out.print(">>");
-				String request = scanner.nextLine();
-				String[] tokens = request.split(" : ");
-				if("join".equals(tokens[0])) {
-					doJoin(tokens[1],printWriter);
-				} else if ("message".equals(tokens[0])) {
-					doMessage(tokens[1]);
-				} else if ("quit".equals(tokens[0])) {
-					doQuit(printWriter);
-				} else {
-					ChatServer.log("error : 알수 없는 요청 ("+tokens[0]+")");
-				}
-				request = br.readLine();
-				if (request == null) {
-					ChatServer.log("클라이언트로부터 연결이 끊겼습니다.");
-					doQuit(printWriter);
-					break;
-				} else {
-					doMessage(message);
-				}
-			}
-		} catch(IOException e) {
-			ChatServer.log("error:" + e);
-		} finally {
-			try {
-				if(socket != null && socket.isClosed() == false) {
-					socket.close();
-				}
-			} catch(IOException e) {
-				e.printStackTrace();
-			}
-			}	
-		}
-	}
-	private void doQuit(Writer writer) {
-		removeWriter(writer);
-		
-		String data = nickname + "님이 퇴장하셨습니다.";
-		broadcast(data);
-	}
-	private void removeWriter(Writer writer) {
-		removeWriter(writer);
-		return;
-	}
-	private void doMessage(String message) {
-		this.message = message;
-		
-		String data = nickname + " = " message;
-		broadcast(data);
-		
-	}
-	public ChatServerThread(Socket socket) {
-		this.socket = socket;
-	}
 	public ChatServerThread(Socket socket, List<Writer> listWriters) {
 		this.socket = socket;
 		this.listWriters = listWriters;
 	}
-	public static void log(String log) {
-		System.out.println(log);
+	
+	@Override
+	public void run() {
+	
+		
+		
+		try {
+		
+		br = new BufferedReader(new InputStreamReader(socket.getInputStream(), "UTF-8"));
+		pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), "UTF-8"), true);
+		
+		while(true) {
+			String request = br.readLine();
+			
+			if(request == null) {
+				ChatServer.log("클라이언트로 부터 연결이 끊겼습니다.");
+				doQuit(pw);
+				break;	
+			}
+			System.out.println(request);
+			String[] tokens = request.split(":");
+			if("join".equals(tokens[0])) {
+				System.out.println(tokens[0]);
+				doJoin(tokens[1],pw);
+				log(nickname+"님이 접속되었습니다.");
+			} else if("message".equals(tokens[0])) {
+				doMessage(tokens[1],pw);
+			} else if("quit".equals(tokens[0])) {
+				doQuit(pw);
+			} else {
+				ChatServer.log("에러 : 알수 없는 요청 (" + tokens[0] + ")");
+			}
+		}
+		
+		} catch(IOException e) {
+			log(e.toString());
+		}
 	}
-	private void doJoin(String nickname, Writer writer) {
-		this.nickname = nickname;
+
+	
+	//1. print remote socket address
+	//2. create stream( from Basic Stream )
+	//3. processing...
 		
-		/* writer pool에 저장*/
+	private void doQuit(PrintWriter writer) {
+		removeWriter(writer);
+		
+		String data = "message:" + nickname + "님이 퇴장하였습니다.";
+		broadcast(data,writer);
+	}
+	private void removeWriter(PrintWriter writer) {
+		synchronized(listWriters) {
+			listWriters.remove(writer);
+		}
+	}
+	private void doMessage(String message, Writer writer) {
+		String data = "message:"+ nickname+ ":" + message;
+		
+		broadcast(data,writer);
+		
+	}
+	private void doJoin(String nickName, Writer writer) {
+		this.nickname = nickName;
+		
+		String data = "message" + nickName + "님이 참여하였습니다.";
+		broadcast(data,writer);
+		// writer pool에 저장
+		
 		addWriter(writer);
+	
+		pw.println("join:ok");
 		
-		//ack
-		printWriter.println("join : ok");
-		printWriter.flush();
 	}
 	private void addWriter(Writer writer) {
 		synchronized(listWriters) {
 			listWriters.add(writer);
-		}	
+		}
 	}
-	private void broadcast(String data) {
-		
-		synchronized (listWriters) {
-			for(Writer writer : listWriters ) {
+	private void broadcast (String data, Writer writer) {
+		synchronized(listWriters) {
+			for(Writer wirter : listWriters) {
 				PrintWriter printWriter = (PrintWriter)writer;
 				printWriter.println(data);
 				printWriter.flush();
 			}
 		}
 	}
+	public static void log(String log) {
+		System.out.println("[Echo Client] " + log);
+	}
 }	
+
 	
