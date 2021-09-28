@@ -7,6 +7,6 @@
   </parent>
   <artifactId>network</artifactId>
   <build>
-  	<finalName>networkS</finalName>
+  	<finalName>network</finalName>
   </build>
 </project>
